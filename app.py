@@ -15,7 +15,8 @@ app = Flask(__name__)
 @app.route('/')
 def mainmenu():
 
-    text = r.get("redis-key")
+    #Need to use str(bytes_string, 'utf-8') to display properly without b''
+    text = str(r.get("redis-key"),'utf-8')
     
     response = """
     <html>
